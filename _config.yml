@@ -132,6 +132,14 @@ abbrlink:
   force: false # enable force mode, in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink.
   writeback: true # Whether to write changes to front-matters back to the actual markdown files. (true in default)
 
+
+search:
+  path: search.xml
+  field: post # post | all
+  content: true
+  # template: ./search.xml
+  # format: html
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
