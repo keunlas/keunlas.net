@@ -1,8 +1,14 @@
 # Scheme: Mist Muse Pisces Gemini
-scheme: Muse
+scheme: Mist
 
+# Sidebar Avatar
 avatar:
-  url: /uploads/avatar.jpg
+  # Replace the default image and set the url here.
+  url: /uploads/avatar.jpg #/images/avatar.gif
+  # If true, the avatar will be displayed in circle.
+  rounded: true
+  # If true, the avatar will be rotated with the cursor.
+  rotated: true
 
 menu:
   home: / || fa fa-home
@@ -82,7 +88,6 @@ giscus:
   loading: lazy
 
 # Local Search
-# Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
   enable: true
   # Show top n results per article, show all results by setting to -1
