@@ -14,7 +14,7 @@ since: 2025
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://keunlas.net
+url: https://keunlas.net
 # permalink: :year/:month/:day/:title/
 # permalink: posts/:abbrlink/
 permalink: posts/:abbrlink.html
