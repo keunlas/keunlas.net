@@ -73,7 +73,7 @@ giscus:
    # Available values: 0 | 1
   emit_metadata: 0
   # Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme
-  theme: preferred-color-scheme
+  theme: transparent_dark
   # Available values: en | zh-CN
   lang: zh-CN
   # Place the comment box above the comments
