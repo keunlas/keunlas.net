@@ -99,7 +99,7 @@ local_search:
 
 # Cloudflare Web Analytics
 # See: https://www.cloudflare.com/web-analytics/
-cloudflare_analytics: fa62e3d458df484b9a2d9ebf7d380217
+cloudflare_analytics: 
 
 social:
   GitHub: https://github.com/keunlas || fab fa-github
