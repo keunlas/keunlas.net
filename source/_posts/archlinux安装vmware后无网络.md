@@ -1,9 +1,10 @@
 ---
-title: 在 Archlinux中 安装 Vmware Workstation 中遇到的一些问题
+title: 在Archlinux中安装Vmware Workstation中遇到的一些问题
 tags: archlinux
-categories: 小知识
 comments: true
+abbrlink: a5941e9c
 date: 2025-01-04 17:53:32
+categories:
 ---
 
 

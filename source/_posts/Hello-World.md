@@ -1,7 +1,7 @@
 ---
 title: Hello World
 tags: 'hello,world!'
-categories: 'hello,world!'
+categories: 
 comments: true
 abbrlink: 4a17b156
 date: 2025-01-04 13:18:32
@@ -20,15 +20,4 @@ int main() {
   return 0;
 }
 ```
-
-[Hello](./4a17b156.html)
-
-- 这里是第一行
-- 2
-- 3
-- 4
-- 第五行在这里
-- Test for line 6
-
-
 
