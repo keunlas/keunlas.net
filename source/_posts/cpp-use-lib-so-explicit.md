@@ -4,6 +4,7 @@ comments: true
 tags:
   - C++
   - 动态库
+  - 编译与链接
 categories: C/C++
 abbrlink: 5e4caed8
 date: 2025-01-06 17:20:27
@@ -35,6 +36,14 @@ extern "C" int add(int x, int y) {
 ```
 
 使用```g++ -fPIC -shared myadd.cpp -o myadd.so```来编译```myadd.cpp```成动态库```myadd.so```
+
+```shell
+# 上面的命令也可以分为这两步
+# 先将 myadd.cpp 汇编成机器码 myadd.o
+g++ -c -fPIC myadd.cpp -o myadd.o
+# 再生成动态库
+g++ -shared myadd.o -o myadd.so
+```
 
 ## main.cpp
 
