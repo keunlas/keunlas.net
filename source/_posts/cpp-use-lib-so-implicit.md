@@ -1,11 +1,12 @@
 ---
 title: 在C++中隐式的使用.so动态库
 comments: true
-date: 2025-01-06 18:14:20
 tags:
   - C++
   - 动态库
 categories: C/C++
+abbrlink: acafc476
+date: 2025-01-06 18:14:20
 ---
 
 在archlinux上成功实现了隐式调用动态库. 
