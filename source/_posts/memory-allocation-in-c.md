@@ -16,6 +16,8 @@ date: 2025-01-07 14:02:16
 - ```void *realloc(void* ptr, size_t new_size);```
 - ```void  free(void *ptr);```
 
+<!--more-->
+
 # 内存分配
 
 
