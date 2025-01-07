@@ -3,6 +3,7 @@ title: C语言中的内存分配与释放
 comments: true
 tags:
   - C
+  - stdlib.h
 categories: C/C++
 abbrlink: 200a0d28
 date: 2025-01-07 14:02:16
@@ -10,12 +11,15 @@ date: 2025-01-07 14:02:16
 
 在使用C语言编程的过程中，不可能所有的变量都直接分配在栈上。并且栈上的空间是十分有限的。这个时候就需要手动的在堆上分配和管理内存。
 
+
 主要的几个函数为：
 - ```void *malloc(size_t size);```
 - ```void *calloc(size_t num, size_t size);```
 - ```void *realloc(void* ptr, size_t new_size);```
 - ```void  free(void *ptr);```
 
+
+别忘记引入头文件```stdlib.h```
 <!--more-->
 
 # 内存分配
