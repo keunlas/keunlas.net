@@ -29,6 +29,7 @@ date: 2025-01-07 19:39:22
 #define N 666
 #define M 999
 ```
+
 ```c
 // main.c
 
@@ -90,7 +91,7 @@ int main() {
 
 接着是狭义上的编译，通过```gcc -S main.i -o main.s```命令将main.i编译成main.s
 
-```main.s```文件内容如下：
+main.s文件内容如下：
 
 ```c
 	.file	"main.c"
