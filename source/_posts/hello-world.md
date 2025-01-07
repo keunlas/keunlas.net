@@ -9,6 +9,8 @@ date: 2025-01-04 13:18:32
 
 This is the first post in the blog.
 
+听说很多博客的第一篇文章都是HelloWorld！
+
 <!--more-->
 
 # Hello World
