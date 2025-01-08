@@ -125,7 +125,7 @@ main:
 
 ## 汇编
 
-接着是狭义上的编译，通过```gcc -c main.s -o main.o```命令将main.s汇编成main.o
+接着是汇编，把汇编代码汇编成机器码，通过```gcc -c main.s -o main.o```命令将main.s汇编成main.o
 
 main.o是机器码文件，已经是一个二进制文件了。之前讲过的打包静态库所使用到的就是```.o```文件。
 
