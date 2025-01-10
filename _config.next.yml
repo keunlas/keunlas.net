@@ -1,5 +1,5 @@
 # Scheme: Mist Muse Pisces Gemini
-scheme: Mist
+scheme: Gemini
 
 # Sidebar Avatar
 avatar:
@@ -103,6 +103,8 @@ cloudflare_analytics:
 
 social:
   GitHub: https://github.com/keunlas || fab fa-github
+  RSS: /atom.xml || fab fa-rss
+  Sitemap: /sitemap.xml || fab fa-sitemap
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
