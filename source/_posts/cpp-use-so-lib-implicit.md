@@ -8,6 +8,7 @@ tags:
 categories: C/C++
 abbrlink: acafc476
 date: 2025-01-06 18:14:20
+description: 隐式的使用 .so 动态库需要重点关注与动态库的路径。
 ---
 
 在archlinux上成功实现了隐式调用动态库. 

@@ -8,6 +8,7 @@ tags:
   - 静态库
   - 编译与链接
 categories: Linux
+description: Linux中的ar命令，本文主要是解释如何用这个命令打包静态库，以供 C/C++ 使用。
 ---
 
 制作静态库需要使用到ar命令, 首先来总览一下ar命令的用法.

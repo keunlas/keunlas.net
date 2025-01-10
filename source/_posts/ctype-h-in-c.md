@@ -7,6 +7,7 @@ categories: C/C++
 comments: true
 abbrlink: 5588a9ce
 date: 2025-01-05 17:49:17
+description: ctype.h头文件与字符有关。包括字符大小写转换，和字符类型判断。
 ---
 
 

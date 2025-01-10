@@ -8,6 +8,7 @@ tags:
 categories: C/C++
 abbrlink: 5e4caed8
 date: 2025-01-06 17:20:27
+description: 显式的使用 .so 动态库需要用到dlfcn.h头文件，本文给出了使用示例。
 ---
 
 在archlinux上成功实现了显式调用动态库.

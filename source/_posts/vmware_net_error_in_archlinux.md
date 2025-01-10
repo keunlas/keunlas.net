@@ -5,6 +5,7 @@ comments: true
 abbrlink: a5941e9c
 date: 2025-01-04 17:53:32
 categories:
+description: 在Archlinux中安装Vmware Workstation中遇到了网络的问题。
 ---
 
 

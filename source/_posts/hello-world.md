@@ -5,6 +5,7 @@ categories:
 comments: true
 abbrlink: 4a17b156
 date: 2025-01-04 13:18:32
+description: 这篇文章只有HelloWorld，其他的什么也没有。
 ---
 
 This is the first post in the blog.

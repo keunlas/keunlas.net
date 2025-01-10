@@ -7,6 +7,7 @@ categories: C/C++
 comments: true
 abbrlink: 1b979af1
 date: 2025-01-10 09:24:17
+description: C语言中的qsort排序函数，和如何编参数中用于比较的函数指针。
 ---
 
 

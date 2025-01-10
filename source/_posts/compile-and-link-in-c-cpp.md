@@ -8,6 +8,7 @@ tags:
 categories: C/C++
 abbrlink: dfd36be8
 date: 2025-01-07 19:39:22
+description: C/C++中的编译和链接分为四个阶段：预处理、编译、汇编和链接。
 ---
 
 编译与链接主要为下述步骤，其中前三个步骤就是广义上的编译。
