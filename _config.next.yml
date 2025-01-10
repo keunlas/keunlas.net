@@ -106,10 +106,10 @@ links_settings:
   layout: block
 
 links:
-  #Title: https://example.com
-  '友情链接': https://keunlas.net/ 
-  '百度搜索': https://www.baidu.com/ 
-  '谷歌搜索': https://www.google.com/ 
+  # Title: https://example.com
+  # '友情链接': https://keunlas.net/ 
+  # '百度搜索': https://www.baidu.com/ 
+  # '谷歌搜索': https://www.google.com/ 
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
@@ -173,7 +173,7 @@ excerpt_description: true
 
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
-read_more_btn: true
+read_more_btn: false
 
 # Post meta display settings
 post_meta:
@@ -334,7 +334,7 @@ bookmark:
   color: "#222"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
   # If manual, only save it by clicking the bookmark-icon.
-  save: auto
+  save: manual
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
