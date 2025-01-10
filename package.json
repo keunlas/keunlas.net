@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
+    "build": "npx hexo generate",
+    "clean": "npx hexo clean",
+    "deploy": "npx hexo deploy",
+    "server": "npx hexo server"
   },
   "hexo": {
     "version": "7.3.0"
@@ -32,5 +32,8 @@
     "hexo-theme-landscape": "^1.0.0",
     "hexo-theme-next": "^8.22.0",
     "hexo-word-counter": "^0.2.0"
+  },
+  "devDependencies": {
+    "hexo-related-posts": "^1.5.2"
   }
 }

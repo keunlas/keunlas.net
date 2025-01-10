@@ -1,6 +1,7 @@
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
+# 1ilILoO0
 
 # Site
 title: '面向未知'
@@ -177,3 +178,37 @@ filter_optimize:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+
+related_posts:
+    enabled: true
+    # enable_env_name: prod
+    # filter_threshold: 0.3
+    related_count: 16
+    # weight:
+    #     title: 0.05
+    #     description: 0.05
+    #     keywords: 0.01
+    #     tags: 0.005
+    #     categories: 0.005
+    #     text: 1
+    # stemmers:
+    #   - en
+    #   - ru
+    # reserved:
+    #   - asp.net
+    #   - vs.net
+    #   - ado.net
+    #   - .net
+
+
+
+# recommended_posts:
+# #   server: https://api.truelaurel.com #后端推荐服务器地址
+# #   timeoutInMillis: 10000 #服务时长，超过此时长，则使用离线推荐模式
+#   internalLinks: 5 #内部文章数量
+#   externalLinks: 0 #外部文章数量
+# #   fixedNumber: false
+# #   autoDisplay: true #自动在文章底部显示推荐文章
+# #   excludePattern: []
+#   titleHtml: <h1>推荐文章<span style="font-size:0.45em; color:gray"></span></h1> #自定义标题

@@ -5,6 +5,7 @@ tags:
   - qsort
 categories: C/C++
 comments: true
+abbrlink: 1b979af1
 date: 2025-01-10 09:24:17
 ---
 

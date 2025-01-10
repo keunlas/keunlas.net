@@ -1,5 +1,5 @@
 # Scheme: Mist Muse Pisces Gemini
-scheme: Gemini
+scheme: Pisces
 
 # Sidebar Avatar
 avatar:
@@ -120,4 +120,28 @@ follow_me:
   #Telegram: https://t.me/channel_name || fab fa-telegram
   #WeChat: /images/wechat_channel.jpg || fab fa-weixin
   # RSS: /atom.xml || fa fa-rss
+
+
+
+# Related popular posts
+# Dependencies: https://github.com/sergeyzwezdin/hexo-related-posts
+related_posts:
+  enable: true
+  icon: fa fa-signs-post
+
+# Post edit
+# Easily browse and edit blog source code online.
+post_edit:
+  enable: false
+  url: https://github.com/keunlas/keunlas.github.io/tree/main/source/ # Link for view source
+  #url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/ # Link for fork & edit
+
+# Show previous post and next post in post footer if exists
+# Available values: left | right | false
+post_navigation: left
+
+# # Recommended posts
+# # Dependency: https://github.com/huiwang/hexo-recommended-posts
+# recommended_posts:
+#   enabled: true
 
