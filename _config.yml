@@ -103,6 +103,7 @@ plugins: hexo-generate-feed
 ## Themes: https://hexo.io/themes/
 theme: next
 
+# 文章计数插件 hexo-word-counter
 symbols_count_time:
   symbols: true
   time: true
@@ -133,7 +134,7 @@ abbrlink:
   force: false # enable force mode, in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink.
   writeback: true # Whether to write changes to front-matters back to the actual markdown files. (true in default)
 
-
+# 搜索索引插件
 search:
   path: search.xml
   field: post # post | all
@@ -141,8 +142,7 @@ search:
   # template: ./search.xml
   # format: html
 
-
-
+# 网页优化插件
 filter_optimize:
   enable: true
   # static resource versioning
@@ -179,7 +179,7 @@ filter_optimize:
 deploy:
   type: ''
 
-
+# 相关推荐插件
 related_posts:
     enabled: true
     # enable_env_name: prod
@@ -201,14 +201,3 @@ related_posts:
     #   - ado.net
     #   - .net
 
-
-
-# recommended_posts:
-# #   server: https://api.truelaurel.com #后端推荐服务器地址
-# #   timeoutInMillis: 10000 #服务时长，超过此时长，则使用离线推荐模式
-#   internalLinks: 5 #内部文章数量
-#   externalLinks: 0 #外部文章数量
-# #   fixedNumber: false
-# #   autoDisplay: true #自动在文章底部显示推荐文章
-# #   excludePattern: []
-#   titleHtml: <h1>推荐文章<span style="font-size:0.45em; color:gray"></span></h1> #自定义标题
