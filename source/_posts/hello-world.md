@@ -11,7 +11,7 @@ This is the first post in the blog.
 
 听说很多博客的第一篇文章都是HelloWorld！
 
-<!--more-->
+<!--more1-->
 
 # Hello World
 

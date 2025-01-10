@@ -25,7 +25,7 @@ void qsort(void *base, size_t num, size_t size, int (*compare)(const void *, con
 - size：base数组中每个元素的大小，通常使用 sizeof 运算符得到。
 - compare：函数指针类型，表示该函数需要传入一个**返回值类型是int**，形参列表是```const void *, const void *```的表示比较规则的函数。
 
-<!--more-->
+<!--more1-->
 
 # 比较规则和compare函数指针
 

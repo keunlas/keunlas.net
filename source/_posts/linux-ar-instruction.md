@@ -16,7 +16,7 @@ categories: Linux
 ar [-][dmpqrtx][cfosSuvV] [a<成员文件>] [b<成员文件>] [i<成员文件>] [count] [备存文件] [成员文件]
 ```
 
-<!--more-->
+<!--more1-->
 
 # 制作静态库
 

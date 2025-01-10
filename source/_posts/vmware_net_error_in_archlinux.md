@@ -10,7 +10,7 @@ categories:
 
 最近在Archlinux上安装vmware虚拟机的时候, 虚拟机一直连不上网络. 经过网络搜索, 问题已解决. 安装和解决全过程如下.
 
-<!--more-->
+<!--more1-->
 
 # 通过aur安装vmware-workstation
 
