@@ -3,10 +3,10 @@
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+# scheme: Muse
 # scheme: Mist
 # scheme: Pisces
-# scheme: Gemini
+scheme: Gemini
 
 # Dark Mode
 darkmode: false
@@ -33,7 +33,7 @@ menu:
 # Enable / Disable menu icons / item badges.
 menu_settings:
   icons: true
-  badges: false
+  badges: true
 
 # ---------------------------------------------------------------
 # Sidebar Settings
@@ -107,6 +107,8 @@ links_settings:
 
 links:
   #Title: https://example.com
+  baidu: https://www.baidu.com/
+  google: https://www.google.com/ 
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
