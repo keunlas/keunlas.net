@@ -101,14 +101,14 @@ social_icons:
 
 # Blog rolls
 links_settings:
-  icon: fa fa-globe
+  icon: fa fa-heart
   # Available values: block | inline
-  layout: block
+  layout: inline
 
 links:
   #Title: https://example.com
-  baidu: https://www.baidu.com/
-  google: https://www.google.com/ 
+  baidu search: https://www.baidu.com/
+  google search: https://www.google.com/ 
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
