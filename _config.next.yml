@@ -103,12 +103,13 @@ social_icons:
 links_settings:
   icon: fa fa-heart
   # Available values: block | inline
-  layout: inline
+  layout: block
 
 links:
   #Title: https://example.com
-  baidu search: https://www.baidu.com/
-  google search: https://www.google.com/ 
+  '友情链接': https://keunlas.net/ 
+  '百度搜索': https://www.baidu.com/ 
+  '谷歌搜索': https://www.google.com/ 
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
