@@ -7,7 +7,7 @@ tags:
 comments: true
 abbrlink: a5941e9c
 date: 2025-01-04 17:53:32
-categories: Archlinux
+categories: 折腾
 description: <center>在Archlinux中安装Vmware Workstation中遇到了网络的问题，经过一会儿折腾，终于修好了。</center>
 ---
 

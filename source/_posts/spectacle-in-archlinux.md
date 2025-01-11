@@ -7,7 +7,7 @@ tags:
   - spectacle
   - lapack
   - blas-openblas
-categories: Archlinux
+categories: 折腾
 abbrlink: 97a1dd2e
 date: 2025-01-11 16:36:00
 ---
