@@ -16,13 +16,15 @@ date: 2025-01-11 16:36:00
 
 当我像往常一样按下快捷键进行截图的时候，突然KDE报了一个错误通知。
 
-```
+```error
 Could not activate remote peer 'org.kde.spectacle': startup job failed
 ```
 
-从这个通知，看不出来到底问题出在哪，只知道spectacle无法启动。于是我决定用命令行运行一遍，运行后错误消息给的很精准，问题立马暴露出来了。
+从这个通知，看不出来到底问题出在哪，只知道spectacle无法启动。于是我决定用命令行运行一遍spectacle.
 
-```
+命令行运行后错误消息给的很精准，问题立马暴露出来了。
+
+```error
 spectacle: symbol lookup error: /usr/lib/liblapack.so.3: undefined symbol: taa_
 ```
 
@@ -34,7 +36,7 @@ spectacle: symbol lookup error: /usr/lib/liblapack.so.3: undefined symbol: taa_
 
 ## 解法一：降级lapack
 
-在archlinux论坛上，我看到有人说，这时由于lapack3.12.1这个版本的问题，只要降级到3.12.0就没有问题了。
+在archlinux论坛上，我看到有人说，这由lapack 3.12.1这个版本而导致的问题，只要降级到3.12.0就没有问题了。
 
 于是我着手安装downgrade这个工具，准备降级lapack。
 
@@ -48,7 +50,7 @@ sudo pacman -S downgrade
 sudo downgrade lapack
 ```
 
-在downgrade界面中，选择lapack的3.12.0版本，进行降级。
+在downgrade界面中，选择lapack 3.12.0-5版本，进行降级。
 
 降级完成之后，再次运行spectacle已经没有任何问题了，可以正常使用了。
 
@@ -68,5 +70,5 @@ sudo downgrade lapack
 sudo pacman -S blas-openblas
 ```
 
-安装的过程中，把冲突的包全部移除（lapack包含于其中），安装完成之后。spectacle就可以正常运行了。
+在安装的过程中，把冲突的包全部移除（lapack包含于其中），安装完成之后。spectacle就可以正常运行了。
 
