@@ -1,10 +1,13 @@
 ---
-title: 在Archlinux中安装Vmware Workstation中遇到的一些问题
-tags: archlinux
+title: 在Archlinux中安装Vmware Workstation遇到的一些问题
+tags: 
+  - Archlinux
+  - vmware
+  - network
 comments: true
 abbrlink: a5941e9c
 date: 2025-01-04 17:53:32
-categories:
+categories: Archlinux
 description: <center>在Archlinux中安装Vmware Workstation中遇到了网络的问题，经过一会儿折腾，终于修好了。</center>
 ---
 
