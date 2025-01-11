@@ -7,7 +7,7 @@ tags:
   - terminal
   - Archlinux
 categories: 折腾
-abbrlink: '12e73306'
+abbrlink: 12e73306
 date: 2025-01-11 17:33:25
 ---
 
