@@ -7,7 +7,7 @@ tags:
 categories: C/C++
 abbrlink: 200a0d28
 date: 2025-01-07 14:02:16
-description: C语言中的内存分配与释放，也就是三个memory allocation函数和free函数。
+description: <center>C语言中的内存分配与释放，也就是三个memory allocation函数和free函数。</center>
 ---
 
 在使用C语言编程的过程中，不可能所有的变量都直接分配在栈上。并且栈上的空间是十分有限的。这个时候就需要手动的在堆上分配和管理内存。

@@ -7,7 +7,7 @@ categories: C/C++
 comments: true
 abbrlink: 46aa2375
 date: 2025-01-05 17:43:17
-description: C语言中的string.h头文件，包括获取字符串长度和，复制、拼接和比较字符串。
+description: <center>C语言中的string.h头文件，包括获取字符串长度和，复制、拼接和比较字符串。</center>
 ---
 
 

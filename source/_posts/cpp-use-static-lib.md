@@ -8,7 +8,7 @@ tags:
 categories: C/C++
 abbrlink: a8135667
 date: 2025-01-06 20:48:44
-description: 本文包括了如何将代码打包成静态库，和使用打包好的静态库。
+description: <center>本文包括了如何将代码打包成静态库，和使用打包好的静态库。</center>
 ---
 
 在archlinux上成功使用.a静态库. 
