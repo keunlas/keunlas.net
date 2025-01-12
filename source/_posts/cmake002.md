@@ -2,12 +2,13 @@
 title: CMake的依赖关系图
 comments: true
 description: <center>理解CMake依赖关系图。</center>
-date: 2025-01-12 18:06:44
 tags:
   - C
   - C++
   - cmake
 categories: CMake
+abbrlink: 5586ae64
+date: 2025-01-12 18:06:44
 ---
 
 # 引出例子
