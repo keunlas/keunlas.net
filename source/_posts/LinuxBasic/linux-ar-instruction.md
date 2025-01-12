@@ -4,10 +4,10 @@ comments: true
 abbrlink: 8c6254fb
 date: 2025-01-06 21:05:29
 tags:
-  - linux
+  - Linux
   - 静态库
   - 编译与链接
-categories: Linux
+categories: Linux基础指令
 description: <center>Linux中的ar命令，本文主要是解释如何用这个命令打包静态库，以供 C/C++ 使用。</center>
 ---
 

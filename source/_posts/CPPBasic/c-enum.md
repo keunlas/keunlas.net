@@ -3,7 +3,7 @@ title: C语言中的枚举类型
 comments: true
 tags:
   - C
-categories: C/C++
+categories: C/C++基础
 abbrlink: f373749b
 date: 2025-01-07 10:43:24
 description: <center>C语言的枚举类型设计是十分简单和功能弱小的，但在特定的场景中，它也是足够用的。</center>

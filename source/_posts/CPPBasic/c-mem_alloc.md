@@ -4,7 +4,7 @@ comments: true
 tags:
   - C
   - stdlib.h
-categories: C/C++
+categories: C/C++基础
 abbrlink: 200a0d28
 date: 2025-01-07 14:02:16
 description: <center>C语言中的内存分配与释放，也就是三个memory allocation函数和free函数。</center>

@@ -3,11 +3,11 @@ title: 尝试kitty终端
 comments: true
 description: <center>本文记述了kitty官方文档中，比较好用的快捷键。</center>
 tags:
-  - kitty
-  - terminal
+  - Kitty
+  - Terminal
   - Archlinux
 categories: 折腾
-abbrlink: 12e73306
+abbrlink: '12e73306'
 date: 2025-01-11 17:33:25
 ---
 

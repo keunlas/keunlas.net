@@ -3,7 +3,7 @@ title: C语言中的ctype.h头文件
 tags:
   - C
   - ctype.h
-categories: C/C++
+categories: C/C++基础
 comments: true
 abbrlink: 5588a9ce
 date: 2025-01-05 17:49:17

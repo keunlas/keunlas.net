@@ -3,7 +3,8 @@ title: C语言中的qsort排序函数
 tags:
   - C
   - qsort
-categories: C/C++
+  - stdlib.h
+categories: C/C++基础
 comments: true
 abbrlink: 1b979af1
 date: 2025-01-10 09:24:17

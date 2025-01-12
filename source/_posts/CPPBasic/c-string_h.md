@@ -3,7 +3,7 @@ title: C语言中的string.h头文件
 tags:
   - C
   - string.h
-categories: C/C++
+categories: C/C++基础
 comments: true
 abbrlink: 46aa2375
 date: 2025-01-05 17:43:17

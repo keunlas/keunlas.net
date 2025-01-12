@@ -5,8 +5,8 @@ description: <center>理解CMake依赖关系图。</center>
 tags:
   - C
   - C++
-  - cmake
-categories: CMake
+  - CMake
+categories: C/C++项目构建
 abbrlink: 5586ae64
 date: 2025-01-12 18:06:44
 ---

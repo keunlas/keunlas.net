@@ -4,8 +4,9 @@ comments: true
 tags:
   - C
   - C++
+  - Linux
   - 编译与链接
-categories: C/C++
+categories: C/C++项目构建
 abbrlink: dfd36be8
 date: 2025-01-07 19:39:22
 description: <center>C/C++中的编译和链接分为四个阶段：预处理、编译、汇编和链接。</center>

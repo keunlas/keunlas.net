@@ -4,9 +4,10 @@ comments: true
 description: <center>之前的隐式使用动态库遗留下来了一个仍未解决的问题——动态库的路径的问题。通过一段时间读书，我明白的这个问题的关键，这里我将解决方法笔记于此。</center>
 tags:
   - C++
+  - Linux
   - 动态库
   - 编译与链接
-categories: C/C++
+categories: C/C++项目构建
 abbrlink: 7d54b279
 date: 2025-01-12 19:09:02
 ---

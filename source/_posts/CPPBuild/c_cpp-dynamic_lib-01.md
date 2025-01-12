@@ -3,9 +3,10 @@ title: 在C++中显式的使用.so动态库
 comments: true
 tags:
   - C++
+  - Linux
   - 动态库
   - 编译与链接
-categories: C/C++
+categories: C/C++项目构建
 abbrlink: 5e4caed8
 date: 2025-01-06 17:20:27
 description: <center>显式的使用 .so 动态库需要用到dlfcn.h头文件，本文给出了使用示例。</center>

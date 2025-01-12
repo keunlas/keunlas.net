@@ -3,9 +3,10 @@ title: 在C++中隐式的使用.so动态库
 comments: true
 tags:
   - C++
+  - Linux
   - 动态库
   - 编译与链接
-categories: C/C++
+categories: C/C++项目构建
 abbrlink: acafc476
 date: 2025-01-06 18:14:20
 description: <center>隐式的使用 .so 动态库需要重点关注与动态库的路径。</center>

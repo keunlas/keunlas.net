@@ -4,7 +4,7 @@ comments: true
 description: <center>今天运行使用spectacle这款截图工具的时候突然报错了，经过排查是lapack库的锅。解决过程记录在此。</center>
 tags:
   - Archlinux
-  - spectacle
+  - Spectacle
   - lapack
   - blas-openblas
 categories: 折腾

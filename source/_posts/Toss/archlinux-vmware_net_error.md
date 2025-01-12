@@ -2,7 +2,7 @@
 title: 在Archlinux中安装Vmware Workstation遇到的一些问题
 tags: 
   - Archlinux
-  - vmware
+  - Vmware
   - network
 comments: true
 abbrlink: a5941e9c
