@@ -67,7 +67,7 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: /uploads/avatar.jpg #/images/avatar.gif
+  url: /uploads/avatar_256x256.png
   # If true, the avatar will be displayed in circle.
   rounded: true
   # If true, the avatar will be rotated with the cursor.
@@ -129,8 +129,28 @@ toc:
 # See: https://theme-next.js.org/docs/theme-settings/footer
 # ---------------------------------------------------------------
 
+favicon:
+  small: /uploads/avatar_16x16.png
+  medium: /uploads/avatar_32x32.png
+  apple_touch_icon: /uploads/apple-touch-icon-next.png
+  safari_pinned_tab: /uploads/avatar_256x256.png
+  # safari_pinned_tab: /uploads/logo.svg
+  #android_manifest: /images/manifest.json
+  #ms_browserconfig: /images/browserconfig.xml
+
+# Creative Commons 4.0 International License.
+# See: https://creativecommons.org/share-your-work/licensing-types-examples
+# Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+# You can set a language value if you prefer a translated version of CC license, e.g. deed.zh
+# CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
+creative_commons:
+  license: by-nc-sa
+  sidebar: true
+  post: true
+  language: 
+
 # Show multilingual switcher in footer.
-language_switcher: false
+language_switcher: true
 
 footer:
   # Specify the year when the site was setup. If not defined, current year will be used.
