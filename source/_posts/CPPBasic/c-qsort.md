@@ -1,7 +1,7 @@
 ---
 title: C语言中的qsort排序函数
 tags:
-  - C
+  - C语言
   - qsort
   - stdlib.h
 categories: C/C++基础

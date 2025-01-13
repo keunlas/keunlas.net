@@ -3,7 +3,7 @@ title: CMake初步使用
 comments: true
 description: <center>使用CMake进行项目的构建，简单初探。</center>
 tags:
-  - C
+  - C语言
   - C++
   - CMake
 categories: C/C++项目构建

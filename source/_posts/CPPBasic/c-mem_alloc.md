@@ -2,7 +2,7 @@
 title: C语言中的内存分配与释放
 comments: true
 tags:
-  - C
+  - C语言
   - stdlib.h
 categories: C/C++基础
 abbrlink: 200a0d28

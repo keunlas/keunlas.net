@@ -2,7 +2,7 @@
 title: C语言中的枚举类型
 comments: true
 tags:
-  - C
+  - C语言
 categories: C/C++基础
 abbrlink: f373749b
 date: 2025-01-07 10:43:24

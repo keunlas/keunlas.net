@@ -1,7 +1,7 @@
 ---
 title: C语言中的ctype.h头文件
 tags:
-  - C
+  - C语言
   - ctype.h
 categories: C/C++基础
 comments: true

@@ -2,7 +2,7 @@
 title: C/C++中的编译与链接
 comments: true
 tags:
-  - C
+  - C语言
   - C++
   - Linux
   - 编译与链接

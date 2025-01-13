@@ -3,7 +3,7 @@ title: CMake的依赖关系图
 comments: true
 description: <center>理解CMake依赖关系图。</center>
 tags:
-  - C
+  - C语言
   - C++
   - CMake
 categories: C/C++项目构建

@@ -1,7 +1,7 @@
 ---
 title: C语言中的string.h头文件
 tags:
-  - C
+  - C语言
   - string.h
 categories: C/C++基础
 comments: true
