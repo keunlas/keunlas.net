@@ -53,7 +53,7 @@ test/               # 忽略所有名字带有 test 的目录
 
 ```sh
 
-# 给 .gitignore 添加 .env 文件
+# 给 .gitignore 添加 .build 文件
 echo ".build" >> .gitignore
 
 # 从 git 版本库中去除该文件
