@@ -1,12 +1,13 @@
 ---
 title: 如何书写 .gitignore 文件
-date: 2025-01-13 15:11:32
 tags:
   - Git
   - .gitignore
 categories: 知识速记
 comments: true
 description: <center>.gitignore规则的书写。</center>
+abbrlink: 47a1fb62
+date: 2025-01-13 15:11:32
 ---
 
 虽然已经用了多年的git，但是至今都没怎么好好的看一下ignore规则。
