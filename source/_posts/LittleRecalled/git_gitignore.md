@@ -15,6 +15,8 @@ description: <center>.gitignore规则的书写。</center>
 
 这篇文章，也将作为知识速记这个类别的首篇文章。
 
+参考文章：[.gitignore File – How to Ignore Files and Folders in Git](https://www.freecodecamp.org/news/gitignore-file-how-to-ignore-files-and-folders-in-git/)
+
 # 如何在 Git 中忽略一个文件或文件夹
 
 ## 如何忽略一个文件或目录
