@@ -33,6 +33,6 @@
     "hexo-word-counter": "^0.2.0"
   },
   "devDependencies": {
-    "hexo-related-posts": "^1.5.2"
+    "hexo-related-posts": "^1.6.2"
   }
 }
