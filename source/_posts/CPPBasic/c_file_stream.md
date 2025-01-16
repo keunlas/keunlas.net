@@ -153,3 +153,30 @@ int num;
 fscanf(stdin, "%d", &num);
 fprintf(stdout, "%d\n", num);
 ```
+
+
+## fread和fwrite读写二进制数据
+
+```c
+size_t fread(void* buffer, size_t size, size_t count, FILE* stream); 
+```
+- 参数
+  - buffer: 存放从输入流中读取到的数据的数组（普遍会用一个- char数组，因为char数组一个元素一个字节）
+  - size: 每个元素的大小(以字节为单位)
+  - count: 最多一次性读取的元素的个数(一般都设置为数组长度)
+  - stream: 任意输入流
+- 返回值
+  - 成功读取元素的个数。当读到文件末尾时，返回值可能会小-于count(因为已经读不到count个字节数据了)。
+  - 如果读到了流的末尾，再继续read，此函数会返回0。
+  - 除此外，若在读取过程中发生了错误，此函数也会返回一个小于count的值。
+
+
+```c
+size_t fwrite(const void* buffer, size_t size, size_t count, FILE* stream);
+```
+
+- buffer: 存放待输出字节数据的数组（普遍会用一个char数组，因为char数组一个元素一个字节）
+- size: 每个元素的大小(以字节为单位)
+- count: 要写入元素的个数
+- stream: 任意输出流
+- 返回值：成功写入元素的个数。当发生错误时，这个值可能小于count。(该返回值一般不处理)
