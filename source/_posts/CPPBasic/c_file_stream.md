@@ -2,11 +2,12 @@
 title: C语言中的文件流
 comments: true
 description: <center>C语言有关文件流操作相关的API，以及完成一些常见的文件处理工作。</center>
-date: 2025-01-16 09:56:58
 tags:
   - C语言
-  - 
+  - stdio.h
 categories: C/C++基础
+abbrlink: 69f962ad
+date: 2025-01-16 09:56:58
 ---
 
 # 常用API一览
