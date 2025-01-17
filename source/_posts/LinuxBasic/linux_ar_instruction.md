@@ -5,6 +5,7 @@ abbrlink: 8c6254fb
 date: 2025-01-06 21:05:29
 tags:
   - Linux
+  - ar
   - 静态库
   - 编译与链接
 categories: Linux基础指令
