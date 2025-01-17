@@ -180,3 +180,76 @@ size_t fwrite(const void* buffer, size_t size, size_t count, FILE* stream);
 - count: 要写入元素的个数
 - stream: 任意输出流
 - 返回值：成功写入元素的个数。当发生错误时，这个值可能小于count。(该返回值一般不处理)
+
+
+
+
+
+# 文件定位
+
+
+```c
+int fseek(FILE* stream, long int offset, int whence);
+long int ftell(FILE* stream);
+void rewind(FILE* stream);
+```
+
+fseek可以改变文件指针的位置，其中核心的参数是 whence 表示参照点，参照点有 3 个选择：
+- SEEK_SET：文件的起始位置。
+- SEEK_CUR：文件的当前位置。
+- SEEK_END：文件的末尾位置。
+
+`offset` 表示偏移量 (可以为负)，它是以字节进行计数的。表示从参照点开始，向文件开头(负数)或者向文件末尾(正数)移动offset个字节。
+
+`ftell`函数，即"file tell"，它表示记录文件指针的当前位置，以待后续返回。这一点看，它有点类似goto中的标签。
+
+`rewind`，倒带的英文单词。表示直接将文件指针移动到文件开始。
+
+
+
+# errno 变量
+
+errno是一个 int 类型的全局变量：
+- 在C11标准前的C语言规范中，它就是一个进程共享的全局变量
+- C11标准引入线程的概念，该变量成为线程私有的全局变量。即每一个线程都有自己独立的errno变量
+- 此全局变量被定义在 <errno.h> 头文件中
+
+我们可以在程序的任何位置打印 errno 的值，如果显示的是非 0 值，就表示发生了某种类型的错误。如果想要详细的查看错误信息，而不是一个错误码，可以用以下两个函数：
+```c
+void perror(const char *s);
+char *strerror(int errnum);
+```
+
+perror函数：
+- 全称是"Print Error"，p是print的缩写
+- 该函数会根据当前errno的值，向标准错误流 stderr 输出一个描述对应错误的信息。
+- 该函数允许传参一个字符串，这个字符串会拼到错误信息的前面，最终一起输出到stderr中。
+- 因为可以传参，使得该函数可以在指示错误时，传递一些额外信息，在实际工作中进行错误输出时，是比较常用的。比如对于因找不到文件而打开文件失败的错误，我们就可以通过该函数添加上找不到的文件的名字。
+
+strerror函数：
+- 全称是"String Error"，str是string的缩写
+- 该返回会根据函数调用传入的errno的值，找到对应的错误信息，然后包装成字符串作为返回值返回。
+- 该返回的返回值是一个包含错误信息的字符串。
+
+
+示例:
+```c
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <errno.h>  
+#include <string.h> // 包含以调用strerror函数
+
+int main(void) {
+    printf("%d\n", errno);  // 进程启动时设置为0
+    FILE* fp = fopen("not_exist_file.txt", "r");
+    // 上面的文件打开失败
+    printf("%d\n", errno);  // 此时errno被设置为2
+    puts(strerror(errno));  // 根据errno返回一个错误信息字符串
+
+    // 一般更常用perror,它表示print error
+    // 它可以传递一个参数,并将参数拼到错误信息字符串中
+    // 然后输出到stderr当中
+    perror("not_exist_file.txt");
+    return 0;
+}
+```
