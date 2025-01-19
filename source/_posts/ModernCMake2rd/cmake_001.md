@@ -3,10 +3,9 @@ title: CMake初步使用
 comments: true
 description: <center>使用CMake进行项目的构建，简单初探。</center>
 tags:
-  - C语言
-  - C++
   - CMake
-categories: C/C++项目构建
+  - 笔记
+categories: Modern CMake for C++ 2rd Edition
 abbrlink: ce53047e
 date: 2025-01-12 17:23:54
 ---

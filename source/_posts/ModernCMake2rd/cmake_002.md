@@ -3,10 +3,10 @@ title: CMake的依赖关系图
 comments: true
 description: <center>理解CMake依赖关系图。</center>
 tags:
-  - C语言
-  - C++
   - CMake
-categories: C/C++项目构建
+  - 笔记
+  - CMake项目依赖
+categories: Modern CMake for C++ 2rd Edition
 abbrlink: 5586ae64
 date: 2025-01-12 18:06:44
 ---
@@ -23,7 +23,7 @@ date: 2025-01-12 18:06:44
 
 这五个target的依赖关系如下图所示。
 
-![银行项目依赖关系图](../assets/202501120001.png)
+![银行项目依赖关系图](/assets/202501120001.png)
 
 # 理清关系
 
