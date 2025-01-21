@@ -92,7 +92,7 @@ endif()
 # 字节序
 
 大多数情况下，字节序并不重要.
-但是当编写需要可移植性的位操作代码时，CMake 将提供BIG_ENDIAN 或 LITTLE_ENDIAN 值，这些值存储在 CMAKE_<LANG>_BYTE_ORDER 变量中，其中 <LANG> 是 C、CXX、OBJC 或 CUDA。
+但是当编写需要可移植性的位操作代码时，CMake 将提供BIG_ENDIAN 或 LITTLE_ENDIAN 值，这些值存储在 `CMAKE_<LANG>_BYTE_ORDER` 变量中，其中 `<LANG>` 是 C、CXX、OBJC 或 CUDA。
 
 
 
