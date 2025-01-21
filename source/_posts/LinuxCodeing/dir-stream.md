@@ -6,6 +6,7 @@ tags:
   - C语言
   - Linux
   - 目录流
+  - dirent
 categories: Linux系统编程
 abbrlink: 2912b58b
 date: 2025-01-21 20:53:28
@@ -117,19 +118,116 @@ int rmdir(const char *pathname);
 
 ## 打开目录流
 
+```c
+#include <dirent.h>     // dirent是directory entry的简写，就是目录项的意思
+#include <sys/types.h>
+DIR *opendir(const char *name);
+```
 
+形式参数：name: 字符串，代表要打开的目录的路径。
+
+返回值：
+- 成功时，返回指向 DIR 类型的指针，即目录流的指针
+- 失败时，返回 NULL 并设置 errno 以指示错误的原因。常见的失败原因，比如目录没有权限打开、目录不存在等。
 
 
 ## 关闭目录流
 
 
+```c
+#include <sys/types.h>
+#include <dirent.h>
+int closedir(DIR *dirp);  
+```
 
+形式参数：dirp: 由 opendir 返回的目录流指针。
 
+返回值：
+- 成功：返回0
+- 失败时，返回 -1 并设置 errno 以指示错误的原因。常见的错误原因就是乱传指针，传入的指针不是打开的目录流指针。
 
 ## 读目录流
 
+当你使用 opendir 打开一个目录流后，可以使用 readdir 依次读取目录中的每个条目，直到目录中没有更多条目为止。
+
+```c
+#include <dirent.h>
+struct dirent *readdir(DIR *dirp);
+```
+
+形式参数：dirp: 由 opendir 返回的目录流指针。
+
+返回值：
+- 返回值: 成功时，返回指向 struct dirent 结构体对象的指针，这个结构体当中包含了目录下文件和子目录的信息（如文件名等）。
+- 当目录中没有更多条目时返回 NULL。
+- 当函数出错时该函数也会返回NULL。但只要传给函数的指针是一个打开的目录流指针，该函数一般不会出错，所以可以把返回NULL作为读完目录流的标记，而不需要做错误处理。
+
+### dirent结构体
+
+directory entry也就是目录项.
+
+是当前目录下的某个文件/子目录的目录项结构体，这个结构体中会存储当前目录下的某个文件/子目录的信息。
+
+```c
+// dirent是directory entry的简写，就是目录项的意思
+struct dirent {
+ ino_t          d_ino;       // 此目录项的inode编号，目录项中会存储文件的inode编号。一般是一个64位无符号整数（64位平台）
+ off_t          d_off;       // 到下一个目录项的偏移量。可以视为指向下一个目录项的指针(近似可以看成链表)，一般是一个64位有符号整数
+ unsigned short d_reclen;    // 此目录项的实际大小长度，以字节为单位(注意不是目录项所表示文件的大小，也不是目录项结构体的大小)
+ unsigned char  d_type;      // 目录项所表示文件的类型，用不同的整数来表示不同的文件类型
+ char           d_name[256]; // 目录项所表示文件的名字，该字段一般决定了目录项的实际大小。也就是说文件名越长，目录项就越大
+};
+```
+
+其中文件类型d_type的可选值如下(使用宏常量定义的整数)：
+
+```c
+DT_BLK      // 块设备文件，对应整数值6
+DT_CHR      // 字符设备文件，对应整数值2
+DT_DIR      // 目录文件，对应整数值4
+DT_FIFO     // 有名管道文件，对应整数值1
+DT_LNK      // 符号链接文件，对应整数值10
+DT_REG      // 普通文件，对应整数值8
+DT_SOCK     // 套接字文件，对应整数值12
+DT_UNKNOWN  // 未知类型文件，对应整数值0
+```
+
+> 返回的这个结构体指针指向的是静态对象, 所以不需要手动free.
 
 
 
+## 移动目录流指针的位置
 
+告知当前的位置.
+
+```c
+#include <dirent.h>
+long telldir(DIR *dirp);
+```
+
+到达记录的位置.
+
+```c
+#include <dirent.h>
+void seekdir(DIR *dirp, long loc);
+```
+
+回到一开始.
+
+```c
+#include <dirent.h>
+void rewinddir(DIR *dirp);
+```
+
+
+# 总结
+
+目录的相关操作可以获取到很多文件信息
+
+- inode编号
+- 文件类型
+- 文件大小
+- 文件名称
+
+不过想要获得更多的信息, 需要用到另一个系统调用函数`stat`.
 
