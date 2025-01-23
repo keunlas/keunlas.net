@@ -163,3 +163,30 @@ int main() {
 ```
 
 这个示例代码展示了如何使用`open`、`read`、`write`和`close`函数进行文件复制操作。
+
+
+# lseek
+
+`lseek` 函数是 Unix 和 Linux 系统中的一个系统调用，用于在文件描述符上移动文件偏移量。它允许程序在文件中定位到特定的位置，以便进行读写操作。
+
+函数原型如下：
+```c
+#include <unistd.h>
+#include <sys/types.h>
+
+off_t lseek(int fd, off_t offset, int whence);
+```
+
+**参数说明**
+
+- `fd`: 文件描述符，通常是通过 `open` 函数获得的文件描述符。
+- `offset`: 偏移量，表示相对于 `whence` 指定的位置移动的字节数。
+- `whence`: 基准位置，可以是以下值之一：
+  - `SEEK_SET`: 文件开头
+  - `SEEK_CUR`: 当前文件偏移量
+  - `SEEK_END`: 文件末尾
+
+**返回值**
+
+- 成功时返回新的文件偏移量（从文件开头的字节数）。
+- 失败时返回 `-1`，并设置 `errno` 以指示错误类型。
