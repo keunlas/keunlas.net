@@ -2,5 +2,6 @@
   "files.associations": {
     "all-in-one.h": "c",
     "dirent.h": "c"
-  }
+  },
+  "Codegeex.CommitMessageStyle": "ConventionalCommits"
 }

@@ -2,12 +2,13 @@
 title: Linux系统调用函数stat
 comments: true
 description: <center>stat是一个系统调用函数，用于获取指定文件的相关信息。</center>
-date: 2025-01-21 20:45:31
 tags:
   - C语言
   - Linux
   - stat
 categories: Linux系统编程
+abbrlink: 77d056a8
+date: 2025-01-21 20:45:31
 ---
 
 
