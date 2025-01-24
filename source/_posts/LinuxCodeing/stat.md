@@ -6,6 +6,7 @@ tags:
   - C语言
   - Linux
   - stat
+  - POSIX
 categories: Linux系统编程
 abbrlink: 77d056a8
 date: 2025-01-21 20:45:31

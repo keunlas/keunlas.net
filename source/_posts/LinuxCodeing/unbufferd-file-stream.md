@@ -6,6 +6,7 @@ tags:
   - C语言
   - Linux
   - 无缓冲文件流
+  - POSIX
 categories: Linux系统编程
 abbrlink: 8eafffb1
 date: 2025-01-23 14:05:54

@@ -8,6 +8,7 @@ tags:
   - memory
   - Linux
   - 文件映射
+  - POSIX
 categories: Linux系统编程
 ---
 

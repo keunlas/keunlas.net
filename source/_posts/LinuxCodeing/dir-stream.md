@@ -7,6 +7,7 @@ tags:
   - Linux
   - 目录流
   - dirent
+  - POSIX
 categories: Linux系统编程
 abbrlink: 2912b58b
 date: 2025-01-21 19:53:28
