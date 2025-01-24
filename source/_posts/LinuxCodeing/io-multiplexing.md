@@ -98,8 +98,38 @@ int main(int argc, char const *argv[]) {
 ```
 
 
+# select
 
 
+`select()` 函数可以监视多个文件描述符, 当其中任何一个文件描述符变为可读或可写时, `select()` 函数将返回. `select()` 函数的函数原型如下:
+
+```c
+#include <sys/select.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
+// synchronous I/O multiplexing
+// 同步        I/O 多路复用
+int select(
+   int nfds, // 被监听文件描述符集合最大的文件描述符+1 (最大的文件描述符+1)
+   fd_set *readfds, // 要监听的: 读操作文件描述符集合
+   fd_set *writefds, // 要监听的: 写操作文件描述符集合
+   fd_set *exceptfds, // 要监听的: 异常操作文件描述符集合
+   struct timeval *timeout // 监听时候的阻塞时间:NULL代表一直等待直到指定就绪,0代表不等待检查文件描述符立即返回
+);
+// 返回值: 正数表示就绪的文件描述符数量; 0表示监听超时; -1表示是失败
+```
+```c
+// 构建监听文件描述符:
+void FD_ZERO(fd_set *set); // 初始化文件描述符集合
+void FD_SET(int fd, fd_set *set); // 向文件描述符集合添加要监听的文件描述符
+void FD_CLR(int fd, fd_set *set); // 从文件描述符集合移除一个文件描述符,不再监听移除项
+int  FD_ISSET(int fd, fd_set *set); // 判断某个文件描述符, 是否在文件描述符集合中
+```
+
+- 调用`select`之后, `select`会阻塞进程, 去监听设置的文件描述符状态; 直到监听到至少一个文件描述符就绪, `select`解除阻塞状态, 并携带就绪的文件描述符返回。
+
+- 监听集合和监听完毕之后携带的就绪集合, 是同一个`fd_set`存储。(传入传出参数, 非const指针) (意味着在循环中, 每次都要重置监听集合set)
 
 
 
