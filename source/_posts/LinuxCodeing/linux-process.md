@@ -1,13 +1,15 @@
 ---
 title: Linux进程操作
 comments: true
-description: <center></center>
-date: 2025-01-25 14:36:48
+description: <center>主要包括创建进程, 退出进程, 进程间通信以及信号.</center>
 tags:
   - Linux
   - 进程
   - 进程间通信
+  - 信号
 categories: Linux系统编程
+abbrlink: 9d03ce17
+date: 2025-01-25 14:36:48
 ---
 
 # 创建进程
@@ -90,6 +92,8 @@ void _exit(int status;
 ```
 
 `exit` 函数用于终止当前进程，并将 `status` 作为进程的退出状态。`exit` 函数会关闭所有打开的文件描述符，释放进程的所有资源，并通知父进程进程已经退出。`exit` 函数会等待所有子进程退出，然后终止进程。
+
+
 
 
 
