@@ -12,6 +12,52 @@ abbrlink: 9d03ce17
 date: 2025-01-25 14:36:48
 ---
 
+
+
+
+
+# 探查进程(ps, top)
+
+
+
+```sh
+# -e所有进程
+# -f详细信息
+ps -ef
+# -l长列表
+ps -l
+# l长列表, BSD风格
+ps l
+# --forest显示进程间父子关系, GNU风格
+ps --forest
+# 实时查看进程
+top
+```
+
+
+
+# 结束进程(kill, killall)
+
+```sh
+# 显示所有信号
+$kill -l
+
+# 以异常方式终止进程
+$kill -9 pid
+```
+
+```sh
+kill <PID>
+kill -s HUP <PID>
+
+
+
+killall <name(可使用通配符)>
+```
+
+
+
+
 # 创建进程
 
 
