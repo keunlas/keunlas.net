@@ -3,5 +3,7 @@
     "all-in-one.h": "c",
     "dirent.h": "c"
   },
-  "Codegeex.CommitMessageStyle": "ConventionalCommits"
+	"Codegeex.CommitMessageStyle": "ConventionalCommits",
+	"Codegeex.GenerationPreference": "automatic",
+	"Codegeex.CompletionDelay": 0.5
 }
