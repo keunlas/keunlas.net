@@ -13,7 +13,9 @@ date: 2025-01-25 14:36:48
 ---
 
 
-# 探查进程(ps, top)
+# Linux命令
+
+## 探查进程(ps, top)
 
 
 
@@ -75,7 +77,7 @@ COMMAND: 启动进程的命令
 
 
 
-# 结束进程(kill, killall)
+## 结束进程(kill, killall)
 
 ```sh
 # 显示所有信号
@@ -92,13 +94,13 @@ killall <name(可使用通配符)>
 ```
 
 
+# 库函数
+
+## 创建进程
 
 
-# 创建进程
 
-
-
-## system
+### system
 
 ```c
 #include <stdlib.h>
@@ -110,7 +112,7 @@ int system(const char *command);
 
 
 
-## fork
+### fork
 
 ```c
 #include <sys/types.h>
@@ -129,7 +131,7 @@ pid_t fork(void);
 
 
 
-## exec
+### exec
 
 ```c
 #include <unistd.h>
@@ -160,9 +162,9 @@ int execvpe(const char *file, char *const argv[], char *const envp[]);
 
 
 
-# 退出进程
+## 退出进程
 
-## exit
+### exit
 
 ```c
 #include <stdlib.h>
@@ -174,6 +176,188 @@ void _exit(int status;
 ```
 
 `exit` 函数用于终止当前进程，并将 `status` 作为进程的退出状态。`exit` 函数会关闭所有打开的文件描述符，释放进程的所有资源，并通知父进程进程已经退出。`exit` 函数会等待所有子进程退出，然后终止进程。
+
+
+
+
+## 进程控制
+
+
+### 孤儿进程
+
+如果父进程先于子进程退出，则子进程成为孤儿进程，此时将自动被PID为1的进程收养,  PID为1的进程就成为了这个进程的父进程。当一个孤儿进程退出以后，它的资源清理会交给它的父进程来处理。
+
+### 僵尸进程
+
+如果一个进程已经终止，但是其父进程还没有调用 `wait` 或 `waitpid` 函数来获取其退出状态，那么这个进程就被称为僵尸进程。僵尸进程会占用系统资源，因此需要及时处理。
+
+
+## wait and waitpid
+
+在C语言中，`wait` 和 `waitpid` 是用于进程控制的系统调用，通常用于父进程等待子进程的终止并获取其退出状态。这两个函数定义在 `<sys/wait.h>` 头文件中。
+
+### `wait` 函数
+
+#### 函数原型：
+```c
+#include <sys/types.h>
+#include <sys/wait.h>
+
+pid_t wait(int *status);
+```
+
+#### 功能：
+`wait` 函数用于等待任意一个子进程终止，并获取其退出状态。如果没有子进程终止，父进程会阻塞，直到有一个子进程终止。
+
+#### 参数：
+- `status`：指向一个整型变量的指针，用于存储子进程的退出状态。可以通过一些宏来解析这个状态值（如 `WIFEXITED`, `WEXITSTATUS`, `WIFSIGNALED`, `WTERMSIG` 等）。如果不需要获取状态，可以传入 `NULL`。
+
+#### 返回值：
+- 成功时，返回终止的子进程的进程ID（PID）。
+- 失败时，返回 `-1`，并设置 `errno`。
+
+#### 示例：
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main() {
+    pid_t pid = fork();
+
+    if (pid == 0) {
+        // 子进程
+        printf("Child process is running\n");
+        sleep(2);
+        exit(42);  // 子进程退出，返回状态码42
+    } else if (pid > 0) {
+        // 父进程
+        int status;
+        pid_t child_pid = wait(&status);
+
+        if (WIFEXITED(status)) {
+            printf("Child process %d exited with status %d\n", child_pid, WEXITSTATUS(status));
+        }
+    } else {
+        // fork失败
+        perror("fork");
+        exit(EXIT_FAILURE);
+    }
+
+    return 0;
+}
+```
+
+### `waitpid` 函数
+
+#### 函数原型：
+```c
+#include <sys/types.h>
+#include <sys/wait.h>
+
+pid_t waitpid(pid_t pid, int *status, int options);
+```
+
+#### 功能：
+`waitpid` 函数用于等待指定的子进程终止，并获取其退出状态。与 `wait` 不同，`waitpid` 可以指定要等待的子进程，并且可以通过 `options` 参数控制其行为。
+
+#### 参数：
+- `pid`：指定要等待的子进程的PID。
+  - `pid > 0`：等待进程ID为 `pid` 的子进程。
+  - `pid == -1`：等待任意子进程，等同于 `wait`。
+  - `pid == 0`：等待与调用进程同组的任意子进程。
+  - `pid < -1`：等待进程组ID等于 `pid` 绝对值的任意子进程。
+- `status`：与 `wait` 函数中的 `status` 参数相同，用于存储子进程的退出状态。
+- `options`：控制 `waitpid` 的行为，常用的选项有：
+  - `WNOHANG`：如果没有子进程终止，立即返回，而不是阻塞。
+  - `WUNTRACED`：如果子进程被暂停（例如通过 `SIGSTOP` 信号），也返回其状态。
+  - `WCONTINUED`：如果子进程从暂停状态恢复（例如通过 `SIGCONT` 信号），也返回其状态。
+
+#### 返回值：
+- 成功时，返回终止的子进程的进程ID（PID）。
+- 如果指定了 `WNOHANG` 选项且没有子进程终止，返回 `0`。
+- 失败时，返回 `-1`，并设置 `errno`。
+
+#### 示例：
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main() {
+    pid_t pid = fork();
+
+    if (pid == 0) {
+        // 子进程
+        printf("Child process is running\n");
+        sleep(2);
+        exit(42);  // 子进程退出，返回状态码42
+    } else if (pid > 0) {
+        // 父进程
+        int status;
+        pid_t child_pid = waitpid(pid, &status, 0);
+
+        if (WIFEXITED(status)) {
+            printf("Child process %d exited with status %d\n", child_pid, WEXITSTATUS(status));
+        }
+    } else {
+        // fork失败
+        perror("fork");
+        exit(EXIT_FAILURE);
+    }
+
+    return 0;
+}
+```
+
+### 状态宏
+
+`wait` 和 `waitpid` 返回的状态可以通过以下宏进行解析：
+
+- `WIFEXITED(status)`：如果子进程正常退出（通过 `exit` 或 `return`），返回真。
+- `WEXITSTATUS(status)`：如果 `WIFEXITED` 为真，返回子进程的退出状态码。
+- `WIFSIGNALED(status)`：如果子进程因为信号而终止，返回真。
+- `WTERMSIG(status)`：如果 `WIFSIGNALED` 为真，返回导致子进程终止的信号编号。
+- `WIFSTOPPED(status)`：如果子进程被暂停（例如通过 `SIGSTOP` 信号），返回真。
+- `WSTOPSIG(status)`：如果 `WIFSTOPPED` 为真，返回导致子进程暂停的信号编号。
+- `WIFCONTINUED(status)`：如果子进程从暂停状态恢复（例如通过 `SIGCONT` 信号），返回真。
+
+### 总结
+
+- `wait` 用于等待任意一个子进程终止，而 `waitpid` 可以指定等待特定的子进程。
+- `waitpid` 提供了更多的控制选项，如 `WNOHANG` 可以避免阻塞。
+- 通过状态宏可以解析子进程的退出状态，了解子进程是正常退出还是被信号终止。
+
+这两个函数在多进程编程中非常有用，尤其是在需要父进程管理子进程的生命周期时。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
