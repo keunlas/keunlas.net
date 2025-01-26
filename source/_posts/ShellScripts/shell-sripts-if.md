@@ -2,7 +2,6 @@
 title: Shell脚本 - if语句
 comments: true
 description: <center>Shell脚本 - if语句</center>
-date: 2025-01-25 20:31:51
 tags:
   - Shell
   - Linux
@@ -10,6 +9,8 @@ tags:
   - if
   - Shell脚本
 categories: Shell脚本
+abbrlink: 953151c2
+date: 2025-01-25 20:31:51
 ---
 
 # 判断命令状态返回值

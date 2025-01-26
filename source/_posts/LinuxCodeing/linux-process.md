@@ -1,7 +1,7 @@
 ---
 title: Linux进程操作
 comments: true
-description: <center>主要包括创建进程, 退出进程, 进程间通信以及信号.</center>
+description: <center>主要包括创建进程, 退出进程, 进程控制.</center>
 tags:
   - Linux
   - 进程
@@ -94,13 +94,13 @@ killall <name(可使用通配符)>
 ```
 
 
-# 库函数
-
-## 创建进程
 
 
+# 创建进程
 
-### system
+
+
+## system
 
 ```c
 #include <stdlib.h>
@@ -112,7 +112,7 @@ int system(const char *command);
 
 
 
-### fork
+## fork
 
 ```c
 #include <sys/types.h>
@@ -131,7 +131,7 @@ pid_t fork(void);
 
 
 
-### exec
+## exec
 
 ```c
 #include <unistd.h>
@@ -162,9 +162,9 @@ int execvpe(const char *file, char *const argv[], char *const envp[]);
 
 
 
-## 退出进程
+# 退出进程
 
-### exit
+## exit
 
 ```c
 #include <stdlib.h>
@@ -180,25 +180,25 @@ void _exit(int status;
 
 
 
-## 进程控制
+# 进程控制
 
 
-### 孤儿进程
+## 孤儿进程
 
 如果父进程先于子进程退出，则子进程成为孤儿进程，此时将自动被PID为1的进程收养,  PID为1的进程就成为了这个进程的父进程。当一个孤儿进程退出以后，它的资源清理会交给它的父进程来处理。
 
-### 僵尸进程
+## 僵尸进程
 
 如果一个进程已经终止，但是其父进程还没有调用 `wait` 或 `waitpid` 函数来获取其退出状态，那么这个进程就被称为僵尸进程。僵尸进程会占用系统资源，因此需要及时处理。
 
 
-## wait and waitpid
+# 进程同步(wait waitpid)
 
 在C语言中，`wait` 和 `waitpid` 是用于进程控制的系统调用，通常用于父进程等待子进程的终止并获取其退出状态。这两个函数定义在 `<sys/wait.h>` 头文件中。
 
-### `wait` 函数
+## `wait` 函数
 
-#### 函数原型：
+### 函数原型：
 ```c
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -206,17 +206,17 @@ void _exit(int status;
 pid_t wait(int *status);
 ```
 
-#### 功能：
+### 功能：
 `wait` 函数用于等待任意一个子进程终止，并获取其退出状态。如果没有子进程终止，父进程会阻塞，直到有一个子进程终止。
 
-#### 参数：
+### 参数：
 - `status`：指向一个整型变量的指针，用于存储子进程的退出状态。可以通过一些宏来解析这个状态值（如 `WIFEXITED`, `WEXITSTATUS`, `WIFSIGNALED`, `WTERMSIG` 等）。如果不需要获取状态，可以传入 `NULL`。
 
-#### 返回值：
+### 返回值：
 - 成功时，返回终止的子进程的进程ID（PID）。
 - 失败时，返回 `-1`，并设置 `errno`。
 
-#### 示例：
+### 示例：
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -249,9 +249,9 @@ int main() {
 }
 ```
 
-### `waitpid` 函数
+## `waitpid` 函数
 
-#### 函数原型：
+### 函数原型：
 ```c
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -259,10 +259,10 @@ int main() {
 pid_t waitpid(pid_t pid, int *status, int options);
 ```
 
-#### 功能：
+### 功能：
 `waitpid` 函数用于等待指定的子进程终止，并获取其退出状态。与 `wait` 不同，`waitpid` 可以指定要等待的子进程，并且可以通过 `options` 参数控制其行为。
 
-#### 参数：
+### 参数：
 - `pid`：指定要等待的子进程的PID。
   - `pid > 0`：等待进程ID为 `pid` 的子进程。
   - `pid == -1`：等待任意子进程，等同于 `wait`。
@@ -274,12 +274,12 @@ pid_t waitpid(pid_t pid, int *status, int options);
   - `WUNTRACED`：如果子进程被暂停（例如通过 `SIGSTOP` 信号），也返回其状态。
   - `WCONTINUED`：如果子进程从暂停状态恢复（例如通过 `SIGCONT` 信号），也返回其状态。
 
-#### 返回值：
+### 返回值：
 - 成功时，返回终止的子进程的进程ID（PID）。
 - 如果指定了 `WNOHANG` 选项且没有子进程终止，返回 `0`。
 - 失败时，返回 `-1`，并设置 `errno`。
 
-#### 示例：
+### 示例：
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -312,7 +312,7 @@ int main() {
 }
 ```
 
-### 状态宏
+## 状态宏
 
 `wait` 和 `waitpid` 返回的状态可以通过以下宏进行解析：
 
@@ -324,7 +324,7 @@ int main() {
 - `WSTOPSIG(status)`：如果 `WIFSTOPPED` 为真，返回导致子进程暂停的信号编号。
 - `WIFCONTINUED(status)`：如果子进程从暂停状态恢复（例如通过 `SIGCONT` 信号），返回真。
 
-### 总结
+## 总结
 
 - `wait` 用于等待任意一个子进程终止，而 `waitpid` 可以指定等待特定的子进程。
 - `waitpid` 提供了更多的控制选项，如 `WNOHANG` 可以避免阻塞。
@@ -335,6 +335,133 @@ int main() {
 
 
 
+
+
+# 守护进程
+
+
+## 用户组和权限
+
+在Linux系统中，每个进程都有一个用户ID（UID）和组ID（GID），用于标识进程的归属。这些ID决定了进程可以访问哪些文件和资源，以及进程可以执行哪些操作。
+
+在C语言中，可以使用以下系统调用来获取和设置进程的用户ID和组ID：
+
+```c
+#include <unistd.h>
+
+uid_t getuid(void); // 获取当前进程的真实用户ID
+gid_t getgid(void); // 获取当前进程的真实用户组ID
+```
+
+
+## 进程组
+
+在Linux系统中，每个进程都属于一个进程组，进程组是一组相关进程的集合。进程组ID（PGID）用于标识进程组。
+
+在C语言中，可以使用以下系统调用来获取和设置进程的进程组ID：
+
+```c
+#include <unistd.h>
+
+pidt getpid(void); // 获取当前进程的进程组ID
+pid_t getpgrp(void); // 获取当前进程的进程组ID
+
+pid_t getpgid(pid_t pid); // 获取指定进程的进程组ID
+
+int setpgid(pid_t pid, pid_t pgid); // 设置指定进程的进程组ID
+```
+
+## 会话
+
+在Linux系统中，会话（session）是一组相关进程组的集合。会话ID（SID）用于标识会话。
+
+在C语言中，可以使用以下系统调用来获取和设置进程的会话ID：
+
+```c
+#include <unistd.h>
+
+pid_t getsid(pid_t pid); // 获取指定进程的会话ID
+
+int setsid(void); // 创建一个新的会话，并将当前进程设置为会话的领头进程
+```
+
+## 守护进程
+
+守护进程（daemon）是一种长期运行在后台的进程，没有控制终端。守护进程通常用于执行系统任务，如日志记录、邮件发送等。
+
+在C语言中，可以使用以下步骤创建一个守护进程：
+
+1. 创建子进程，并让父进程退出。这样可以确保守护进程在后台运行，不受终端的影响。
+2. 在子进程中调用 `setsid()` 函数创建一个新的会话，并将当前进程设置为会话的领头进程。
+3. 改变当前工作目录为根目录，以避免守护进程在挂载点被卸载时受到影响。
+4. 关闭所有文件描述符，以避免守护进程占用不必要的资源。
+
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int main() {
+    pid_t pid = fork();
+
+    if (pid < 0) {
+        perror("fork");
+        exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+        // 子进程
+        setsid(); // 创建新的会话，并将当前进程设置为会话的领头进程
+
+        chdir("/"); // 改变工作目录为根目录
+
+        close(STDIN_FILENO); // 关闭标准输入
+        close(STDOUT_FILENO); // 关闭标准输出
+        close(STDERR_FILENO); // 关闭标准错误
+
+        // 在这里执行守护进程的任务
+        while (1) {
+            // 守护进程的任务
+            sleep(1);
+        }
+    } else {
+        // 父进程
+        exit(EXIT_SUCCESS); // 父进程退出
+    }
+
+    return 0;
+}
+```
+
+## 守护进程的日志记录
+
+守护进程通常需要记录其运行状态和错误信息。在Linux系统中，可以使用 `syslog` 函数将日志信息发送到系统日志守护进程 `syslogd`。
+
+在C语言中，可以使用以下步骤使用 `syslog` 函数记录日志：
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <syslog.h>
+
+int main() {
+    openlog("mydaemon", LOG_PID, LOG_DAEMON); // 打开日志
+
+    syslog(LOG_INFO, "Daemon started"); // 记录日志
+
+    closelog(); // 关闭日志
+
+    return 0;
+}
+```
+
+但是一般不会用syslog函数记录日志.
 
 
 
