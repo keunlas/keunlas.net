@@ -1,5 +1,5 @@
 ---
-title: Shell脚本 - if语句
+title: Shell脚本(if for while)
 comments: true
 description: <center>Shell脚本 - if语句</center>
 tags:
@@ -207,4 +207,42 @@ for (( a=1, b=10; a <= 10; a++, b-- ))
 do
 	echo "$a - $b"
 done
+```
+
+
+# while
+
+```bash
+#!/bin/bash
+# testing the while command
+counter=1
+while [ $counter -le 5 ]
+do
+	echo "Counter is $counter"
+	counter=$((counter + 1))
+done
+# Counter is 1
+# Counter is 2
+# Counter is 3
+# Counter is 4
+# Counter is 5
+```
+
+
+# until
+
+```bash
+#!/bin/bash
+# testing the until command
+counter=1
+until [ $counter -gt 5 ]
+do
+	echo "Counter is $counter"
+	counter=$((counter + 1))
+done
+# Counter is 1
+# Counter is 2
+# Counter is 3
+# Counter is 4
+# Counter is 5
 ```
