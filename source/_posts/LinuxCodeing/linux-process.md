@@ -5,8 +5,6 @@ description: <center>主要包括创建进程, 退出进程, 进程控制.</cent
 tags:
   - Linux
   - 进程
-  - 进程间通信
-  - 信号
 categories: Linux系统编程
 abbrlink: 9d03ce17
 date: 2025-01-25 14:36:48
