@@ -1,12 +1,13 @@
 ---
 title: Linux进程间通信
 comments: true
-description: <center>IPC</center>
+description: <center>IPC相关的操作。</center>
 abbrlink: '34e41312'
 date: 2025-01-28 19:24:35
 tags:
   - Linux
   - 进程
+  - 共享内存
 categories: Linux系统编程
 ---
 
