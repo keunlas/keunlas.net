@@ -1,7 +1,6 @@
 ---
 title: POSIX线程
 comments: true
-date: 2025-02-07 22:24:26
 tags:
   - c
   - linux
@@ -9,6 +8,8 @@ tags:
   - pthread
   - posix
 categories: Linux基础
+abbrlink: b581fc6f
+date: 2025-02-07 22:24:26
 ---
 
 
