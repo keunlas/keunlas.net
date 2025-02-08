@@ -2,11 +2,10 @@
 title: Shell 脚本结构控制
 comments: true
 tags:
-  - Shell
-  - Linux
+  - shell
+  - linux
   - bash
   - if
-  - Shell脚本
 categories: 随手记
 abbrlink: 953151c2
 date: 2025-01-25 20:31:51

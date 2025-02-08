@@ -1,7 +1,6 @@
 ---
 title: 《Vim实用技巧》笔记整理
 comments: true
-description: <center>整理Vim实用技巧，需要有一点点的vim基础。（至少需要会保存退出vim，以及jkhl移动光标，和ioa插入）</center>
 tags:
   - vim
   - note
@@ -65,7 +64,7 @@ s 命令把两个操作合并为一个：它先删除光标下的字符，然后
 | 文档查找下一处匹配项   | /pattern              | n    | N    |
 | 文档查找上一处匹配项   | ?pattern              | n    | N    |
 | 行内执行替换           | :s/target/replacement | &    | u    |
-| 记录并执行一系列的修改 | qx{changes}q             | @x   | u    |
+| 记录并执行一系列的修改 | qx{changes}q          | @x   | u    |
 
 # 技巧5 查找并手动替换
 

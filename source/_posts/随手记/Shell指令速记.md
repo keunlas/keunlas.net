@@ -1,12 +1,12 @@
 ---
-title: Linux基础指令笔记(001)
+title: Shell指令速记
 comments: true
-description: <center></center>
-date: 2025-01-20 21:22:17
 tags:
-  - Linux
-  - Shell
-categories: Linux基础指令
+  - linux
+  - shell
+categories: 随手记
+abbrlink: 615a942b
+date: 2025-01-20 21:22:17
 ---
 
 # 探查进程(ps, top)
@@ -58,7 +58,7 @@ sort -n file
 sort -M file
 ```
 
-还有很多序
+还有很多序...
 
 
 
