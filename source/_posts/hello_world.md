@@ -13,7 +13,7 @@ date: 2025-01-04 13:18:32
 
 <center> 这里的内容主要和我的学习路线有关 </center>
 <center> 当然也有Archlinux的内容 </center>
-<center> 学习是用无止境的 </center>
+<center> 学习是永无止境的 </center>
 <center> 学得越多就越会觉得自己无知 </center>
 <center> 人类终究是有极限的 </center>
 <center> 除非... </center>

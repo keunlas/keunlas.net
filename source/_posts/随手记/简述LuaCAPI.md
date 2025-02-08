@@ -228,7 +228,7 @@ Lua C API 提供了一系列函数用于操作表, 以下简略的说几个.
 **假设 Lua 配置脚本中有如下函数：**
 ```lua
 function f(x, y)
-    return (x^2 * math.sin(y)) / (1 - x)
+    return x + y + 1000
 end
 ```
 
