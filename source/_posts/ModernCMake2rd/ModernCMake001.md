@@ -1,5 +1,5 @@
 ---
-title: CMake初步使用
+title: CMake 初步使用
 comments: true
 tags:
   - cmake

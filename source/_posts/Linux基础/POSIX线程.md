@@ -1,5 +1,5 @@
 ---
-title: POSIX线程
+title: POSIX 线程
 comments: true
 tags:
   - c

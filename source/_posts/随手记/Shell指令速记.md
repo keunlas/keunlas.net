@@ -1,5 +1,5 @@
 ---
-title: Shell指令速记
+title: Shell 指令速记
 comments: true
 tags:
   - linux
