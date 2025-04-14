@@ -527,16 +527,18 @@ images: images
 # hexo-next-giscus
 giscus:
   enable: true
-  repo: keunlas/keunlas.github.io # Github repository name
+  repo: keunlas/keunlas.net # Github repository name
   repo_id: R_kgDONlp8Vg # Github repository id
   category: Announcements # Github discussion category
   category_id: DIC_kwDONlp8Vs4CltpB # Github discussion category id
   # Available values: pathname | url | title | og:title
   mapping: title
   # Available values: 0 | 1
+  strict: 1
+  # Available values: 0 | 1
   reactions_enabled: 1
-   # Available values: 0 | 1
-  emit_metadata: 0
+  # Available values: 0 | 1
+  emit_metadata: 1
   # Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme
   theme: dark_dimmed
   # Available values: en | zh-CN
