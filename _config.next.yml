@@ -33,7 +33,7 @@ favicon:
   # android_manifest: /images/manifest.json
 
 # Custom Logo (Warning: Do not support scheme Mist)
-custom_logo: /icons/avatar_256x256.png
+# custom_logo: /icons/avatar_256x256.png
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/about/cclicenses/
