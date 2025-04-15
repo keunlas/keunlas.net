@@ -14,13 +14,4 @@
 ## 许可信息 (License Information)
 本仓库使用混合许可：
 - **Hexo 相关配置部分**和 [Hexo](https://github.com/hexojs/hexo) 相同，采用 [MIT License](LICENSE)
-- **文章部分**采用 [Creative Commons Attribution-ShareAlike 4.0 International License (CC-BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/)
-
-
-
-
-
-
-
-
-
+- **文章部分**采用 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
