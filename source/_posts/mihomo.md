@@ -283,9 +283,99 @@ rules:
 
 现在我的配置已经可以正常使用了，无论是走端口代理，还是直接 Tun 模式接管一切都没有任何问题了。
 
+
+# 手写脚本实现一键更新订阅
+
+首先把需要附加的配置写在 append.yaml 中。
+
+```yaml
+# append.yaml
+
+# 混合端口 (万能端口, 继承自 clash-verge-rev)
+mixed-port: 7897
+
+# 前端控制器界面 (archlinuxcn 源中的 metacubexd)
+external-ui: /usr/share/metacubexd
+# 前端控制器登录密码
+# (因为监听的 127.0.0.1 只有本机能够访问, 暂不设置)
+# secret: ""
+
+# TCP连接并发，如果域名解析结果对应多个IP，
+# 并发所有IP，选择握手最快的IP进行连接
+tcp-concurrent: true
+
+# # 统一延迟 (用于更准确的测试代理延迟)
+# unified-delay: true
+
+# 保存配置 (选择的节点和 fake-ip 缓存)
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# 使用geoip.dat数据库( 默认：false 使用 mmdb 数据库)
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/geoip-all.dat"
+  geosite: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/geosite-all.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/Country-all.mmdb"
+  asn: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/Country-ASN-all.mmdb"
+
+# DNS
+dns:
+  enable: true
+  ipv6: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip # redir-host
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - geosite:fakeip-filter
+  default-nameserver:
+    - system
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+  # nameserver-policy:
+  #   "geosite:cn,private":
+  #     - https://doh.pub/dns-query
+  #     - https://dns.alidns.com/dns-query
+  #   "geosite:ads":
+  #     - rcode://success
+  #   "geosite:proxy":
+  #     - https://dns.google/dns-query
+  #     - https://cloudflare-dns.com/dns-query
+```
+
+因为我的订阅中默认开启了局域网访问，所以通过 sed 替换一下里面的这一行内容。就不写在 append.yaml 中了。
+
+```bash
+#!/usr/bin/bash
+
+# 获取机场配置到 tmp.yaml
+curl -L '<你的订阅地址>' | sed '1,10s/allow-lan: true/allow-lan: false/g' > tmp.yaml
+
+# 附加 append.yaml 到 tmp.yaml
+cat append.yaml >> tmp.yaml
+
+# 原来配置的备份到 config.yaml.bak
+cp config.yaml config.yaml.bak
+
+# 用 tmp.yaml 替换 config.yaml
+cat tmp.yaml > config.yaml
+
+```
+
+之后使用 `sudo systemctl restart mihomo` 重启一下 mihomo 服务，或者在 web 界面中重新读取一下配置即可完成更新。
+
+
 # 提示
 
-Tun 模式下 ssh 之类的软件都无法使用，因为你连接的 ip 都会变成 198.18.0.1 这个地址。目前我还没找到解决方法...
+Tun 模式下 ssh 之类的软件都无法使用，因为连接的 ip 都会变成 198.18.0.1 这个地址。目前我还没找到解决方法...
 
 
 
