@@ -89,6 +89,12 @@ rules:
   # ...
 ```
 
+我们需要重启 mihomo 内核，让配置生效。
+
+```bash
+sudo systemctl restart mihomo.service
+```
+
 这个时候，mihomo 就已经可以正常的使用了。
 
 但是 Tun 模式目前还用不了，接下来我们继续设置。
@@ -291,36 +297,40 @@ rules:
 ```yaml
 # append.yaml
 
-# 混合端口 (万能端口, 继承自 clash-verge-rev)
 mixed-port: 7897
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: Rule
+log-level: info
+external-controller: 127.0.0.1:9090
 
 # 前端控制器界面 (archlinuxcn 源中的 metacubexd)
 external-ui: /usr/share/metacubexd
-# 前端控制器登录密码
-# (因为监听的 127.0.0.1 只有本机能够访问, 暂不设置)
+
+# web 界面的登录密码
+# (因为我这里监听的 127.0.0.1 只有本机能够访问, 暂不设置)
 # secret: ""
 
-# TCP连接并发，如果域名解析结果对应多个IP，
+#【Mihomo专属】TCP连接并发，如果域名解析结果对应多个IP，
 # 并发所有IP，选择握手最快的IP进行连接
 tcp-concurrent: true
 
-# # 统一延迟 (用于更准确的测试代理延迟)
-# unified-delay: true
-
-# 保存配置 (选择的节点和 fake-ip 缓存)
+# 配置缓存 (代理中选择的节点和 fake-ip 缓存)
 profile:
   store-selected: true
   store-fake-ip: true
 
-# 使用geoip.dat数据库( 默认：false 使用 mmdb 数据库)
+#【Mihomo专属】使用geoip.dat数据库( 默认：false 使用 mmdb 数据库)
 geodata-mode: true
-geo-auto-update: true
-geo-update-interval: 24
-geox-url:
+geo-auto-update: true # 自动更新
+geo-update-interval: 24 # 更新间隔 24 小时
+geox-url: # 下载geoip.dat数据库的地址
   geoip: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/geoip-all.dat"
   geosite: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/geosite-all.dat"
   mmdb: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/Country-all.mmdb"
   asn: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/Country-ASN-all.mmdb"
+
 
 # DNS
 dns:
@@ -351,13 +361,13 @@ dns:
   #     - https://cloudflare-dns.com/dns-query
 ```
 
-因为我的订阅中默认开启了局域网访问，所以通过 sed 替换一下里面的这一行内容。就不写在 append.yaml 中了。
+因为我的订阅中已经有了一些配置，这些配置会和 append.yaml 中的配置冲突，所以通过 sed 进行删除处理。
 
 ```bash
 #!/usr/bin/bash
 
-# 获取机场配置到 tmp.yaml
-curl -L '<你的订阅地址>' | sed '1,10s/allow-lan: true/allow-lan: false/g' > tmp.yaml
+# 获取机场配置，去除前6行，保存到 tmp.yaml
+curl -L '<你的订阅地址>' | sed '1,6d' > tmp.yaml
 
 # 附加 append.yaml 到 tmp.yaml
 cat append.yaml >> tmp.yaml
@@ -385,9 +395,6 @@ geox-url: # 下载geoip.dat数据库的地址
   asn: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/Country-ASN-all.mmdb"
 ```
 
-2. Tun 模式下 ssh 之类的软件都无法使用，因为连接的 ip 都会变成 198.18.0.1 这个地址。<s>目前我还没找到解决方法...</s>
+2. Tun 模式下 ssh 之类的软件都无法使用，因为连接的 ip 都会变成 198.18.0.1 这个地址。经过评论区中大佬的提醒，我找到了一个解决方法。在 dns 配置的 `fake-ip-filter:` 这一项中，把想要 ssh 连接的域名和 ip 填上去就行。否则无论是通过域名进行连接还是直接通过 ip 连接，都会连接不上。
 
-经过评论区中大佬的提醒，我找到了一个解决方法。在 dns 配置的 `fake-ip-filter:` 这一项中，把想要 ssh 连接的域名和 ip 填上去就行。否则无论是通过域名进行连接还是直接通过 ip 连接，都会连接不上。
-
-3. 听评论区中大佬说内核也是支持订阅连接，待我研究研究我来完善一下。
-
+3. 经评论区中大佬提醒，纯内核也支持配置订阅连接。经过一番折腾过后，我发现虽然支持订阅连接，但是 proxy-providers 似乎只导入其中的 proxies，但是对我来说 proxy-groups 和 rules 也是非常需要的，故暂不使用此功能。
