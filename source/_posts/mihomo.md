@@ -56,11 +56,11 @@ sudo systemctl start mihomo.service
 
 # 配置文件
 
-mihomo 内核的配置文件在 /etc/mihomo/config.yaml 中，我们需要修改这个文件来配置我们的 mihomo 内核。
+通过查看守护进程文件 /etc/systemd/system/multi-user.target.wants/mihomo.service 可以看到我的 mihomo 的工作目录为 /etc/mihomo, mihomo 内核的配置文件在 /etc/mihomo/config.yaml 中，我们需要修改这个文件来配置我们的 mihomo 内核。
 
-实际上这个文件就是机场给出的配置文件，只不过我们需要修改一些内容。来适合我的使用习惯。
+config.yaml 这个文件就是最主要的配置文件，只不过我们需要修改一些内容。来适合我的使用习惯。
 
-首先把 config.yaml 中的所有内容清空，然后机场给出的配置文件。
+首先把 config.yaml 中的所有内容清空，然后把机场给出的配置文件整个的复制过来。
 
 接下来就是修改修改了。
 
@@ -346,7 +346,7 @@ dns:
   #     - https://dns.alidns.com/dns-query
   #   "geosite:ads":
   #     - rcode://success
-  #   "geosite:proxy":
+  #   "geosite:!cn,!private,!ads":
   #     - https://dns.google/dns-query
   #     - https://cloudflare-dns.com/dns-query
 ```
@@ -373,11 +373,21 @@ cat tmp.yaml > config.yaml
 之后使用 `sudo systemctl restart mihomo` 重启一下 mihomo 服务，或者在 web 界面中重新读取一下配置即可完成更新。
 
 
-# 提示
+# 其他
 
-Tun 模式下 ssh 之类的软件都无法使用，因为连接的 ip 都会变成 198.18.0.1 这个地址。目前我还没找到解决方法...
+1. 第一次启动的时候 mihomo 会下载 mmdb，可能会因为网络问题下载失败，从而没法成功运行。可以先设置好 geox-url 的 cdn 地址，然后重启即可下载成功。
 
+```yaml
+geox-url: # 下载geoip.dat数据库的地址
+  geoip: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/geoip-all.dat"
+  geosite: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/geosite-all.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/Country-all.mmdb"
+  asn: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/Country-ASN-all.mmdb"
+```
 
+2. Tun 模式下 ssh 之类的软件都无法使用，因为连接的 ip 都会变成 198.18.0.1 这个地址。<s>目前我还没找到解决方法...</s>
 
+经过评论区中大佬的提醒，我找到了一个解决方法。在 dns 配置的 `fake-ip-filter:` 这一项中，把想要 ssh 连接的域名和 ip 填上去就行。否则无论是通过域名进行连接还是直接通过 ip 连接，都会连接不上。
 
+3. 听评论区中大佬说内核也是支持订阅连接，待我研究研究我来完善一下。
 
