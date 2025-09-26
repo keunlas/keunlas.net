@@ -12,7 +12,7 @@ abbrlink: 4a17b156
 <center> (｡･ω･)ﾉﾞ </center><br>
 
 <center> 这里的内容主要和我的学习路线有关 </center>
-<center> 当然也有Archlinux的内容 </center>
+<center> 当然也有 Archlinux 的内容 </center>
 <center> 学习是永无止境的 </center>
 <center> 学得越多就越会觉得自己无知 </center>
 <center> 人类终究是有极限的 </center>
