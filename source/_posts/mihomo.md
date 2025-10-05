@@ -385,6 +385,8 @@ cat tmp.yaml > config.yaml
 
 # 其他
 
+## mmdb
+
 1. 第一次启动的时候 mihomo 会下载 mmdb，可能会因为网络问题下载失败，从而没法成功运行。可以先设置好 geox-url 的 cdn 地址，然后重启即可下载成功。
 
 ```yaml
@@ -395,8 +397,14 @@ geox-url: # 下载geoip.dat数据库的地址
   asn: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo/Country-ASN-all.mmdb"
 ```
 
+## ssh in Tun mode
+
 2. Tun 模式下 ssh 之类的软件都无法使用，因为连接的 ip 都会变成 198.18.0.1 这个地址。经过评论区中大佬的提醒，我找到了一个解决方法。在 dns 配置的 `fake-ip-filter:` 这一项中，把想要 ssh 连接的域名和 ip 填上去就行。否则无论是通过域名进行连接还是直接通过 ip 连接，都会连接不上。
 
+## proxy-providers
+
 3. 经提醒，纯内核也支持配置订阅连接。经过一番折腾过后，我发现虽然支持订阅连接，但是 proxy-providers 似乎只导入其中的 proxies，但是对我来说 proxy-groups 和 rules 也是非常需要的，故暂不使用此功能。
+
+## external-ui
 
 4. 新版的 mihomo 对 web 界面的存放目录有了要求，可能需要将 metacubexd 的存放目录放到符合要求的位置。
