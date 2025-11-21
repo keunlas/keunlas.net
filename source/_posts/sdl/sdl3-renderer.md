@@ -1,5 +1,5 @@
 ---
-title: 《SDL3 教程》第一个窗口（01）
+title: 《SDL3》第一个窗口（01）
 comments: true
 abbrlink: 1d11277a
 date: 2025-10-06 05:45:51
