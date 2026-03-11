@@ -5,7 +5,7 @@ tags:
   - git
   - gitignore
 categories:
-  - 杂项
+  - 开发知识
 abbrlink: a41423c1
 date: 2025-09-27 02:34:18
 ---
