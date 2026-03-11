@@ -5,7 +5,8 @@ tags:
   - sqlite
   - sqlite3
 categories:
-  - SQLite
+  - 合集
+  - SQLite3 封装
 abbrlink: 8f11705a
 date: 2025-11-21 23:08:25
 ---

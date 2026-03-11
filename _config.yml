@@ -6,11 +6,11 @@
 # Site
 title: '面向未知'
 subtitle: '路漫漫其修远兮'
-description: ''
+description: '这是一个博客网站'
 keywords: 
 author: Keunlas
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'

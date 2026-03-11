@@ -7,7 +7,8 @@ tags:
   - sqlite
   - sqlite3
 categories:
-  - SQLite
+  - 合集
+  - SQLite3 封装
 ---
 
 # 线程安全问题
