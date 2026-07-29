@@ -1,7 +1,7 @@
 # 欢迎来到 keunlas.net 的源码仓库！
 **我的博客可以在以下地址进行访问。**
 - [blog.keunlas.net](https://blog.keunlas.net)
-- [keunlas.pages.dev](https://keunlas.pages.dev)
+- [blog2.keunlas.net](https://blog2.keunlas.net)
 
 ## 许可信息 (License Information)
 本仓库使用混合许可：
