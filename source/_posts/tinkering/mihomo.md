@@ -5,9 +5,7 @@ tags:
   - mihomo
   - archlinux
 categories: 
-  - 折腾
-comments: true
-abbrlink: a2809040
+  - Tinkering
 ---
 
 因为在 Archlinux 上使用 Clash Verge Rev 经常会出现一些奇怪的问题，比如说 service 无法运行，界面卡顿加载不出来，甚至会直接卡死。所以很早之前我就有了直接跑纯内核的念头。

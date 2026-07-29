@@ -2,10 +2,8 @@
 title: Welcome!
 date: 2025-01-04 13:18:32
 tags:
-categories: 
-comments: true
+categories:
 sticky: true
-abbrlink: 4a17b156
 ---
 
 <center> 欢迎来到我的日志 </center><br>

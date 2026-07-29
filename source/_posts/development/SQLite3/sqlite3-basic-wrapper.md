@@ -1,13 +1,11 @@
 ---
 title: 《SQLite3》面向对象包装 SQLite3 C/C++ 基础接口
-comments: true
-abbrlink: 813fa779
 date: 2025-11-21 23:14:50
 tags:
   - sqlite
   - sqlite3
 categories:
-  - 开发
+  - Development
   - SQLite3
 ---
 

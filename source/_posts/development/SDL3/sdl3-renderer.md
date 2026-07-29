@@ -1,13 +1,11 @@
 ---
 title: 《SDL3》创建第一个窗口
-comments: true
-abbrlink: 1d11277a
 date: 2025-10-06 05:45:51
 tags:
   - sdl
   - sdl3
 categories:
-  - 开发
+  - Development
   - SDL3
 ---
 

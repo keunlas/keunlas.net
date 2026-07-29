@@ -1,14 +1,12 @@
 ---
 title: 白名单模式的 gitignore 配置
-comments: true
+date: 2025-09-27 02:34:18
 tags:
   - git
   - gitignore
 categories:
-  - 开发
-  - 通用知识
-abbrlink: a41423c1
-date: 2025-09-27 02:34:18
+  - Development
+  - Generic
 ---
 
 

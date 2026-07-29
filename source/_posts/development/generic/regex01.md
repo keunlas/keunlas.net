@@ -1,13 +1,11 @@
 ---
-title: 正则前瞻匹配（零宽度先行断言）
+title: 正则表达式前瞻匹配（零宽度先行断言）
+date: 2026-03-11 12:31:16
 tags:
   - regex
 categories:
-  - 开发
-  - 通用知识
-comments: true
-abbrlink: 92f1340d
-date: 2026-03-11 12:31:16
+  - Development
+  - Generic
 ---
 
 > 基于 ECMAScript 正则表达式语法

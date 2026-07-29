@@ -1,20 +1,16 @@
 ---
-title: 正则分组子表达式
+title: 正则表达式分组子表达式
+date: 2026-03-11 13:21:33
 tags:
   - regex
 categories:
-  - 开发
-  - 通用知识
-comments: true
-abbrlink: 7357b855
-date: 2026-03-11 13:21:33
+  - Development
+  - Generic
 ---
 
 > 基于 ECMAScript 正则表达式语法
 
 一对括号就是一对分组，废话不多说，直接看例子。
-
-# 分组引用
 
 对 `aabacaabaa` 匹配 `(a+)b\1`，可以匹配到的地方有两处 `aba` 和 `aabaa`。
 

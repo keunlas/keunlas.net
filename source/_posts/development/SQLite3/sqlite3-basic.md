@@ -1,14 +1,12 @@
 ---
 title: 《SQLite3》SQLite3 C/C++ 基础接口
-comments: true
+date: 2025-11-21 23:08:25
 tags:
   - sqlite
   - sqlite3
 categories:
-  - 开发
+  - Development
   - SQLite3
-abbrlink: 8f11705a
-date: 2025-11-21 23:08:25
 ---
 
 # 介绍
