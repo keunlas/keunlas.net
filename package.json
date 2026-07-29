@@ -32,7 +32,9 @@
     "hexo-theme-next": "^8.28.0",
     "hexo-word-counter": "^0.2.2"
   },
-  "devDependencies": {
-    "hexo-related-posts": "^1.6.2"
+  "allowScripts": {
+    "hexo-util@4.0.0": true,
+    "hexo-util@3.3.0": true,
+    "hexo-word-counter@0.2.2": true
   }
 }
