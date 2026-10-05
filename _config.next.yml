@@ -3,8 +3,8 @@ scheme: Gemini
 favicon:
   small: /icons/avatar_16x16.png
   medium: /icons/avatar_32x32.png
-  apple_touch_icon: /icons/apple-touch-icon-next.png
-  safari_pinned_tab: /icons/avatar_256x256.png
+  apple_touch_icon: /icons/apple-touch-icon.png
+  safari_pinned_tab: /icons/logo.svg
 
 creative_commons:
   # Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | cc-zero
